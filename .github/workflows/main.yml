@@ -96,7 +96,7 @@ jobs:
       name: Download helm artifacts
       with:
         name: python-artifacts
-        path: .
+        path: ${{ github.workspace }}
 
     - name: Setup Helm
       uses: azure/setup-helm@v4.3.0
