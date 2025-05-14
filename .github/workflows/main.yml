@@ -101,8 +101,8 @@ jobs:
     - name: Setup Helm
       uses: azure/setup-helm@v4.3.0
 
-    - name: Lint Helm
-      run: helm lint ./helm-charts/todoapp
+    - name: Helm chart lint
+      run: helm lint ./todoapp
 
     - name: Template Helm
       run: |
