@@ -56,6 +56,12 @@ jobs:
           name: python-artifacts
           path: .
 
+      - name: Upload Helm artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: helm-artifacts
+          path: ./helm-charts
+
   docker-ci:
     runs-on: ubuntu-latest
     if:  github.ref_name == 'main' || github.ref_name == 'feature/test-pr'
@@ -95,8 +101,8 @@ jobs:
     - uses: actions/download-artifact@v4
       name: Download helm artifacts
       with:
-        name: python-artifacts
-        path: ${{ github.workspace }}
+        name: helm-artifacts
+        path: .
 
     - name: Setup Helm
       uses: azure/setup-helm@v4.3.0
